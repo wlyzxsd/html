@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Список автомобилей</title>
+    </head>
+
+    <body topmargin="50" leftmargin="50" rightmargin="50">
+        <header>
+            <nav>
+                <h3><a href="index.html">Легенды автопрома</a></h3>
+                <h1><a href="compare.html">Сравнение моделей автомобилей</a></h1>
+            </nav>
+        </header>
+        <hr color="#808080">
+
+     <details>
+    <summary>График</summary>
+    <form>
+        <p>
+            <strong>Значение по оси ОХ</strong><br>
+            <input type="radio" name="OX" value="1">Год начала выпуска<br>
+            <input type="radio" name="OX" value="2">Тип кузова<br>
+        </p>
+    </form>
+
+    <form>
+        <p>
+            <strong>Значение по оси ОY</strong><br>
+            <input type="checkbox" name="OY" value="1">Макс. скорость<br>
+            <input type="checkbox" name="OY" value="2">Мин. скорость<br>
+        </p>
+    </form>
+
+    <form>
+        <p>
+            <input type="button" value="Построить">
+        </p>
+    </form>
+
+    <p>Здесь будет график</p>
+</details>
+
+        <details>
+            <summary>Фильтр</summary>
+            <form>
+                <p>
+                    <label>Модель:</label>
+                    <input type="text" name="carModel"><br>
+                </p>
+
+                <p>
+                    <label>Тип кузова:</label>
+                    <select name="bodyType">
+                        <option value="">Все типы</option>
+                        <option value="Седан">Седан</option>
+                        <option value="Внедорожник">Внедорожник</option>
+                        <option value="Купе">Купе</option>
+                        <option value="Хэтчбек">Хэтчбек</option>
+                        <option value="Родстер">Родстер</option>
+                        <option value="Кроссовер">Кроссовер</option>
+                        <option value="Пикап">Пикап</option>
+                    </select><br>
+                </p>
+
+                <p>
+                    <label>Год начала выпуска:</label>
+                    <input type="text" name="year"><br>
+                </p>
+
+                <p>
+                    <label>Длина:</label>
+                    от <input type="text" name="length_start">
+                    до <input type="text" name="length_end"><br>
+                </p>
+
+                <p>
+                    <label>Мощность: </label>
+                    от <input type="text" name="power_start">
+                    до <input type="text" name="power_end"><br>
+                </p>
+
+                <p>
+                    <label>Макс. скорость: </label>
+                    от <input type="text" name="speed_start">
+                    до <input type="text" name="speed_end">
+                </p>
+
+                <p>
+                    <input type="button" value="Найти">
+                </p>
+            </form>
+        </details>
+
+        <details>
+            <summary>Сортировка</summary>
+            <form>
+                <p>
+                    <label>Первый уровень: </label>
+                    <select name="level_1">
+                        <option value="1">Нет</option>
+                        <option value="2">Модель</option>
+                        <option value="3">Тип кузова</option>
+                        <option value="4">Год выпуска</option>
+                        <option value="5">Длина</option>
+                        <option value="6">Мощность</option>
+                        <option value="7">Макс. скорость</option>
+                    </select>
+                    по убыванию ? <input type="checkbox" name="sort" value="1">
+                </p>
+
+                <p>
+                    <label>Второй уровень: </label>
+                    <select name="level_2">
+                        <option value="1">Нет</option>
+                        <option value="2">Модель</option>
+                        <option value="3">Тип кузова</option>
+                        <option value="4">Год выпуска</option>
+                        <option value="5">Длина</option>
+                        <option value="6">Мощность</option>
+                        <option value="7">Макс. скорость</option>
+                    </select>
+                    по убыванию ? <input type="checkbox" name="sort" value="2">
+                </p>
+
+                <p>
+                    <label>Третий уровень: </label>
+                    <select name="level_1">
+                        <option value="1">Нет</option>
+                        <option value="2">Модель</option>
+                        <option value="3">Тип кузова</option>
+                        <option value="4">Год выпуска</option>
+                        <option value="5">Длина</option>
+                        <option value="6">Мощность</option>
+                        <option value="7">Макс. скорость</option>
+                    </select>
+                    по убыванию ? <input type="checkbox" name="sort" value="3">
+                </p>
+
+                <p>
+                    <input type="button" value="Сортировать">
+                </p>
+            </form>
+        </details>
+
+        <table border="1" align="center" cellpadding="10" width="80%">
+            <tr>
+                <th>Модель</th>
+                <th>Поколение</th>
+                <th>Годы выпуска</th>
+                <th>Тип кузова</th>
+                <th>Длина, м</th>
+                <th>Мощность, л.с.</th>
+                <th>Макс. скорость, км/ч</th>
+            </tr>
+
+            <tr align="center">
+                <td>Toyota Land Cruiser</td>
+                <td>J300</td>
+                <td>2021-2024</td>
+                <td>Внедорожник</td>
+                <td>4.95</td>
+                <td>409</td>
+                <td>210</td>
+            </tr>
+
+            <tr align="center">
+                <td>Toyota Land Cruiser</td>
+                <td>J200</td>
+                <td>2007-2021</td>
+                <td>Внедорожник</td>
+                <td>4.95</td>
+                <td>309</td>
+                <td>200</td>
+            </tr>
+
+            <tr align="center">
+                <td>BMW 7 Series</td>
+                <td>G70</td>
+                <td>2022-2024</td>
+                <td>Седан</td>
+                <td>5.39</td>
+                <td>544</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>BMW 7 Series</td>
+                <td>G11</td>
+                <td>2015-2022</td>
+                <td>Седан</td>
+                <td>5.12</td>
+                <td>450</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mercedes-Benz S-Class</td>
+                <td>W223</td>
+                <td>2020-2024</td>
+                <td>Седан</td>
+                <td>5.18</td>
+                <td>503</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mercedes-Benz S-Class</td>
+                <td>W222</td>
+                <td>2013-2020</td>
+                <td>Седан</td>
+                <td>5.12</td>
+                <td>455</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Nissan GT-R</td>
+                <td>R35 (Premium)</td>
+                <td>2017-2024</td>
+                <td>Купе</td>
+                <td>4.71</td>
+                <td>570</td>
+                <td>315</td>
+            </tr>
+
+            <tr align="center">
+                <td>Nissan GT-R</td>
+                <td>R35</td>
+                <td>2007-2016</td>
+                <td>Купе</td>
+                <td>4.65</td>
+                <td>480</td>
+                <td>310</td>
+            </tr>
+
+            <tr align="center">
+                <td>Honda NSX</td>
+                <td>NC1</td>
+                <td>2016-2022</td>
+                <td>Купе</td>
+                <td>4.47</td>
+                <td>581</td>
+                <td>308</td>
+            </tr>
+
+            <tr align="center">
+                <td>Honda NSX</td>
+                <td>NA1/NA2</td>
+                <td>1990-2005</td>
+                <td>Купе</td>
+                <td>4.43</td>
+                <td>280</td>
+                <td>270</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mazda MX-5 Miata</td>
+                <td>ND</td>
+                <td>2015-2024</td>
+                <td>Родстер</td>
+                <td>3.91</td>
+                <td>184</td>
+                <td>230</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mazda MX-5 Miata</td>
+                <td>NC</td>
+                <td>2005-2015</td>
+                <td>Родстер</td>
+                <td>4.02</td>
+                <td>170</td>
+                <td>215</td>
+            </tr>
+
+            <tr align="center">
+                <td>Toyota Supra</td>
+                <td>A90</td>
+                <td>2019-2024</td>
+                <td>Купе</td>
+                <td>4.38</td>
+                <td>387</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Toyota Supra</td>
+                <td>A80</td>
+                <td>1993-2002</td>
+                <td>Купе</td>
+                <td>4.52</td>
+                <td>280</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>BMW M5</td>
+                <td>F90</td>
+                <td>2017-2023</td>
+                <td>Седан</td>
+                <td>4.96</td>
+                <td>600</td>
+                <td>305</td>
+            </tr>
+
+            <tr align="center">
+                <td>BMW M5</td>
+                <td>F10</td>
+                <td>2011-2016</td>
+                <td>Седан</td>
+                <td>4.91</td>
+                <td>560</td>
+                <td>305</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mercedes-AMG GT</td>
+                <td>C190</td>
+                <td>2014-2024</td>
+                <td>Купе</td>
+                <td>4.54</td>
+                <td>585</td>
+                <td>318</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mercedes-Benz SL</td>
+                <td>R231</td>
+                <td>2012-2020</td>
+                <td>Родстер</td>
+                <td>4.62</td>
+                <td>435</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Nissan Patrol</td>
+                <td>Y62</td>
+                <td>2010-2024</td>
+                <td>Внедорожник</td>
+                <td>5.16</td>
+                <td>405</td>
+                <td>210</td>
+            </tr>
+
+            <tr align="center">
+                <td>Nissan Patrol</td>
+                <td>Y61</td>
+                <td>1997-2010</td>
+                <td>Внедорожник</td>
+                <td>5.08</td>
+                <td>170</td>
+                <td>165</td>
+            </tr>
+
+            <tr align="center">
+                <td>Honda Civic Type R</td>
+                <td>FK8</td>
+                <td>2017-2021</td>
+                <td>Хэтчбек</td>
+                <td>4.56</td>
+                <td>320</td>
+                <td>272</td>
+            </tr>
+
+            <tr align="center">
+                <td>Honda Civic Type R</td>
+                <td>FK2</td>
+                <td>2015-2017</td>
+                <td>Хэтчбек</td>
+                <td>4.39</td>
+                <td>310</td>
+                <td>270</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mazda RX-7</td>
+                <td>FD</td>
+                <td>1992-2002</td>
+                <td>Купе</td>
+                <td>4.28</td>
+                <td>280</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mazda RX-7</td>
+                <td>FC</td>
+                <td>1985-1992</td>
+                <td>Купе</td>
+                <td>4.31</td>
+                <td>205</td>
+                <td>230</td>
+            </tr>
+
+            <tr align="center">
+                <td>Toyota Crown</td>
+                <td>S235</td>
+                <td>2022-2024</td>
+                <td>Седан</td>
+                <td>4.93</td>
+                <td>349</td>
+                <td>230</td>
+            </tr>
+
+            <tr align="center">
+                <td>Toyota Crown</td>
+                <td>S210</td>
+                <td>2018-2022</td>
+                <td>Седан</td>
+                <td>4.91</td>
+                <td>299</td>
+                <td>225</td>
+            </tr>
+
+            <tr align="center">
+                <td>BMW X5</td>
+                <td>G05</td>
+                <td>2018-2023</td>
+                <td>Внедорожник</td>
+                <td>4.92</td>
+                <td>530</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>BMW X5</td>
+                <td>F15</td>
+                <td>2013-2018</td>
+                <td>Внедорожник</td>
+                <td>4.88</td>
+                <td>450</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mercedes-Benz G-Class</td>
+                <td>W463</td>
+                <td>2018-2024</td>
+                <td>Внедорожник</td>
+                <td>4.87</td>
+                <td>585</td>
+                <td>240</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mercedes-Benz G-Class</td>
+                <td>W463 (pre-facelift)</td>
+                <td>1990-2018</td>
+                <td>Внедорожник</td>
+                <td>4.66</td>
+                <td>296</td>
+                <td>180</td>
+            </tr>
+
+            <tr align="center">
+                <td>Nissan Z</td>
+                <td>Z34</td>
+                <td>2022-2024</td>
+                <td>Купе</td>
+                <td>4.38</td>
+                <td>405</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Nissan 370Z</td>
+                <td>Z34</td>
+                <td>2008-2021</td>
+                <td>Купе</td>
+                <td>4.25</td>
+                <td>332</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Honda Accord</td>
+                <td>XI</td>
+                <td>2017-2022</td>
+                <td>Седан</td>
+                <td>4.88</td>
+                <td>252</td>
+                <td>240</td>
+            </tr>
+
+            <tr align="center">
+                <td>Honda Accord</td>
+                <td>IX</td>
+                <td>2012-2017</td>
+                <td>Седан</td>
+                <td>4.86</td>
+                <td>190</td>
+                <td>230</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mazda 6</td>
+                <td>GJ/GL</td>
+                <td>2012-2021</td>
+                <td>Седан</td>
+                <td>4.87</td>
+                <td>250</td>
+                <td>230</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mazda 6</td>
+                <td>GG/GY</td>
+                <td>2007-2012</td>
+                <td>Седан</td>
+                <td>4.75</td>
+                <td>170</td>
+                <td>215</td>
+            </tr>
+
+            <tr align="center">
+                <td>Toyota Camry</td>
+                <td>XV70</td>
+                <td>2017-2024</td>
+                <td>Седан</td>
+                <td>4.88</td>
+                <td>301</td>
+                <td>230</td>
+            </tr>
+
+            <tr align="center">
+                <td>Toyota Camry</td>
+                <td>XV50</td>
+                <td>2011-2017</td>
+                <td>Седан</td>
+                <td>4.85</td>
+                <td>178</td>
+                <td>210</td>
+            </tr>
+
+            <tr align="center">
+                <td>BMW 3 Series</td>
+                <td>G20</td>
+                <td>2018-2023</td>
+                <td>Седан</td>
+                <td>4.71</td>
+                <td>374</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>BMW 3 Series</td>
+                <td>F30</td>
+                <td>2011-2019</td>
+                <td>Седан</td>
+                <td>4.63</td>
+                <td>306</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mercedes-Benz C-Class</td>
+                <td>W206</td>
+                <td>2021-2024</td>
+                <td>Седан</td>
+                <td>4.75</td>
+                <td>258</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mercedes-Benz C-Class</td>
+                <td>W205</td>
+                <td>2014-2021</td>
+                <td>Седан</td>
+                <td>4.68</td>
+                <td>245</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Nissan Skyline GT-R</td>
+                <td>R34</td>
+                <td>1999-2002</td>
+                <td>Купе</td>
+                <td>4.60</td>
+                <td>280</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Nissan Skyline GT-R</td>
+                <td>R33</td>
+                <td>1995-1998</td>
+                <td>Купе</td>
+                <td>4.67</td>
+                <td>280</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Honda S2000</td>
+                <td>AP2</td>
+                <td>2004-2009</td>
+                <td>Родстер</td>
+                <td>4.13</td>
+                <td>240</td>
+                <td>240</td>
+            </tr>
+
+            <tr align="center">
+                <td>Honda S2000</td>
+                <td>AP1</td>
+                <td>1999-2003</td>
+                <td>Родстер</td>
+                <td>4.13</td>
+                <td>240</td>
+                <td>240</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mazda CX-5</td>
+                <td>KF</td>
+                <td>2017-2024</td>
+                <td>Кроссовер</td>
+                <td>4.55</td>
+                <td>194</td>
+                <td>195</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mazda CX-5</td>
+                <td>KE</td>
+                <td>2012-2017</td>
+                <td>Кроссовер</td>
+                <td>4.54</td>
+                <td>165</td>
+                <td>190</td>
+            </tr>
+
+            <tr align="center">
+                <td>Toyota Hilux</td>
+                <td>VIII</td>
+                <td>2015-2024</td>
+                <td>Пикап</td>
+                <td>5.33</td>
+                <td>204</td>
+                <td>180</td>
+            </tr>
+
+            <tr align="center">
+                <td>Toyota Hilux</td>
+                <td>VII</td>
+                <td>2005-2015</td>
+                <td>Пикап</td>
+                <td>5.26</td>
+                <td>171</td>
+                <td>170</td>
+            </tr>
+
+            <tr align="center">
+                <td>BMW Z4</td>
+                <td>G29</td>
+                <td>2018-2024</td>
+                <td>Родстер</td>
+                <td>4.32</td>
+                <td>340</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>BMW Z4</td>
+                <td>E89</td>
+                <td>2009-2016</td>
+                <td>Родстер</td>
+                <td>4.24</td>
+                <td>306</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mercedes-Benz E-Class</td>
+                <td>W213</td>
+                <td>2016-2023</td>
+                <td>Седан</td>
+                <td>4.93</td>
+                <td>333</td>
+                <td>250</td>
+            </tr>
+
+            <tr align="center">
+                <td>Mercedes-Benz E-Class</td>
+                <td>W212</td>
+                <td>2009-2016</td>
+                <td>Седан</td>
+                <td>4.87</td>
+                <td>292</td>
+                <td>250</td>
+            </tr>
+
+        </table>
+    </body>
+</html>
