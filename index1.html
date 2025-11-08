@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Практическая 2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            /* Общие стили */
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                overflow-x: hidden; 
+            }
+
+            /* Шапка */
+            .header {
+                border: 1px solid blue;
+                border-radius: 0.8vw;
+                padding: 0.8vw;
+                font-size: 0;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .menu {
+                width: 100%;
+                text-align: right;
+                vertical-align: middle;
+            }
+
+            .menu-item {
+                display: inline-block;
+                width: 6vw; 
+                padding: 0.6vw 0.9vw; 
+                margin-right: 0.8vw; 
+                color: blue;
+                text-decoration: none;
+                font-size: 1.2vw; 
+                border-radius: 0.8vw; 
+            }
+            .head-left {
+                float: left;
+                display: inline-block;
+                padding: 0.6vw 0.9vw; 
+                color: blue;
+                font-size: 1.4vw; 
+                text-align: left;
+            }
+            
+            .menu-item.active {
+                background: #007bff;
+                color: white;
+            }
+
+            /* Блок с рисунками */
+            .container {
+                width: 98%;
+                height: 25vw; 
+                overflow: hidden;
+                margin: 1.6vw auto; 
+            }
+
+            .left-column {
+                float: left;
+                width: 49%;
+                height: 100%;
+                margin: 0.4vw; 
+            }
+            .center-column {
+                float: left;
+                width: 24%;
+                height: 100%;
+                margin: 0.4vw; 
+            }
+            .right-column {
+                float: left;
+                width: 24%;
+                height: 100%;
+                margin: 0.4vw; 
+            }
+
+            .img-block {
+                display: block;
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
+                position: relative;
+            }
+            .img-block img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .left {
+                height: 49.5%;
+                margin-bottom: 0.4vw;
+            }
+
+            /* Верхние блоки */
+            .stroke {
+                width: 98%;
+                height: 11vw; 
+                margin: 0 auto;
+                padding-left: 0px;
+            }
+
+            .white-block {
+                width: 4%;
+                height: 100%;
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .small-block {
+                height: 100%;
+                width: 10%;
+                padding: 0.4vw; 
+                box-sizing: border-box;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 0.9vw; 
+                text-align: center;
+            }
+
+            .small-block img {
+                display: block;
+                margin: 0.4vw auto; 
+                width: 5.5vw; 
+                height: 5.5vw; 
+                object-fit: contain;
+                border: solid thin black;
+            }
+
+            .small-block h4 {
+                margin: 0.4vw 0;
+                font-size: 0.9vw; 
+            }
+
+            .small-block p {
+                margin: 0.4vw 0;
+            }
+
+            .small-block a {
+                color: brown;
+                text-decoration: none;
+                font-size: 0.9vw; 
+            }
+
+            /* Основное */
+            .main-container {
+                width: 98%;
+                height: 42vw; 
+                overflow: hidden;
+                margin: 1.6vw auto; 
+                box-sizing: border-box;
+            }
+            .small-column {
+                float: left;
+                width: 9%;
+                height: 100%;
+                position: relative;
+            }
+            .small-block-2 {
+                width: 100%;
+                padding: 0.6vw; 
+                box-sizing: border-box;
+                font-size: 0.85vw; 
+                text-align: center;
+                position: absolute;
+            }
+
+            .small-block-2:nth-child(1) {
+                top: 0;
+                height: 33.3%;
+            }
+            .small-block-2:nth-child(2) {
+                top: 33.3%;
+                height: 33.3%;
+            }
+            .small-block-2:nth-child(3) {
+                top: 66.6%;
+                height: 33.3%;
+            }
+
+            .small-block-2 img {
+                display: block;
+                margin: 0.4vw auto; 
+                width: 5.5vw; 
+                height: 5.5vw; 
+                object-fit: contain;
+                border: solid thin black;
+            }
+
+            .small-block-2 h4 {
+                margin: 0.3vw 0; 
+                font-size: 0.85vw; 
+            }
+
+            .small-block-2 p {
+                margin: 0.3vw 0;
+            }
+
+            .small-block-2 a {
+                color: brown;
+                text-decoration: none;
+                font-size: 0.85vw; 
+            }
+
+            .big-column {
+                float: left;
+                width: 76.5%;
+                height: 100%;
+                margin: 0 1%;
+                padding: 1.2vw; 
+                box-sizing: border-box;
+                font-size: 0;
+            }
+            
+            .name {
+                width: 100%;
+                display: block;
+                font-size: 1.1vw; 
+                margin-bottom: 1.2vw; 
+            }
+            .name h3 {
+                text-align: center;
+                margin: 0.8vw auto; 
+                display: block;
+                font-size: 1.4vw; 
+            }
+            
+            .text-column {
+                width: 25%;
+                height: 32vw; 
+                box-sizing: border-box;
+                font-size: 1.1vw; 
+                text-align: justify;
+                display: inline-block;
+                margin-bottom: 1.2vw; 
+                vertical-align: top;
+                overflow: hidden;
+            }
+
+            .text-column a {
+                color: brown;
+                text-decoration: none;
+            }
+            
+            .img-block-main {
+                width: 50%;
+                height: 32vw; 
+                padding: 0.8vw; 
+                box-sizing: border-box;
+                display: inline-block;
+                margin-bottom: 1.2vw; 
+                text-align: center;
+            }
+            
+            .img-block-main img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border: solid thin black;
+            }
+
+            hr {
+                width: 95%;
+                margin: 1.6vw auto; 
+            }
+            
+            footer p {
+                margin: 0 4vw; 
+                font-size: 1.1vw; 
+                text-align: left;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- МЕНЮ -->
+        <div class="header">
+            <div class="menu">
+                <div class="head-left">Автомобили</div>
+                <a href="#" class="menu-item active">Меню 1</a>
+                <a href="#" class="menu-item">Меню 2</a>
+                <a href="#" class="menu-item">Меню 3</a>
+                <a href="#" class="menu-item">Меню 4</a>
+            </div>
+        </div>
+
+        <!-- БЛОК С КАРТИНКАМИ -->
+        <div class="container">
+            <div class="left-column">
+                <div class="img-block">
+                    <img src="images/image40.jpg" alt="Рисунок 1">
+                </div>
+            </div>
+
+            <div class="center-column">
+                <div class="img-block">
+                    <img src="images/image41.jpg" alt="Рисунок 1">
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="img-block left">
+                    <img src="images/image42.jpg" alt="Рисунок 3">
+                </div>
+                <div class="img-block left">
+                    <img src="images/image43.jpg" alt="Рисунок 4">
+                </div>
+            </div>
+        </div>
+
+        <!-- ВЕРХНИЕ МАЛЕНЬКИЕ КАРТИНКИ -->
+        <div class="stroke">
+            <div class="small-block">
+                <img src="images/image44.jpg" alt="Рисунок 1">
+                <h4>Mercedes-Benz C-Class</h4>
+                <p>M 274 DE 20 AL<a href="#">...</a></p>
+            </div>
+
+            <div class="white-block"></div>
+
+            <div class="small-block">
+                <img src="images/image45.jpg" alt="Рисунок 1">
+                <h4>Dodge Challenger SRT Hellcat</h4>
+                <p>V8<a href="#">...</a></p>
+            </div>
+
+            <div class="white-block"></div>
+
+            <div class="small-block">
+                <img src="images/image46.jpg" alt="Рисунок 1">
+                <h4>Chevrolet Camaro</h4>
+                <p>V6<a href="#">...</a></p>
+            </div>
+
+            <div class="white-block"></div>
+
+            <div class="small-block">
+                <img src="images/image47.jpg" alt="Рисунок 1">
+                <h4>Koenigsegg CCX</h4>
+                <p>V8<a href="#">...</a></p>
+            </div>
+
+            <div class="white-block"></div>
+
+            <div class="small-block">
+                <img src="images/image48.jpg" alt="Рисунок 1">
+                <h4>Ford GT</h4>
+                <p>V6<a href="#">...</a></p>
+            </div>
+
+            <div class="white-block"></div>
+
+            <div class="small-block">
+                <img src="images/image49.jpg" alt="Рисунок 1">
+                <h4>Mercedes-AMG CLE</h4>
+                <p>V6<a href="#">...</a></p>
+            </div>
+
+            <div class="white-block"></div>
+
+            <div class="small-block">
+                <img src="images/image50.jpg" alt="Рисунок 1">
+                <h4>Audi RS 5</h4>
+                <p>V6<a href="#">...</a></p>
+            </div>
+        </div>
+
+        <!-- ОСНОВНОЙ КОНТЕЙНЕР -->
+        <div class="main-container">
+            <div class="small-column">
+                <div class="small-block-2">
+                    <img src="images/image51.jpg" alt="Рисунок 1">
+                    <h4>Toyota Land Cruiser 300</h4>
+                    <p>V6<a href="#">...</a></p>
+                </div>
+                <div class="small-block-2">
+                    <img src="images/image52.jpg" alt="Рисунок 1">
+                    <h4>Toyota Land Cruiser Prado</h4>
+                    <p>1GD-FTV<a href="#">...</a></p>
+                </div>
+                <div class="small-block-2">
+                    <img src="images/image53.jpg" alt="Рисунок 1">
+                    <h4>BMW M4</h4>
+                    <p>M TwinPower Turbo<a href="#">...</a></p>
+                </div>
+            </div>
+
+            <div class="big-column">
+                <div class="name"><h3>Mazda rx7</h3></div>
+                <div class="text-column">
+                    Mazda RX-7-спортивный автомобиль, выпускавшийся японской компанией Mazda с 1978 по 2002 год. 
+                    Автомобиль известен своим необычным двигателем. Mazda RX-7 оснащался роторно-поршневым двигателем Ванкеля, что выделяло его на фоне конкурентов,
+                    особенно в боллидах формулы 1. Благодаря легкому мотору, автомобиль обладал прекрасной развесовкой и отличной управляемостью.
+                    Mazda RX-7 стал легендой в мире спортивных автомобилей благодаря своей уникальной конструкции и выдающимся характеристикам.
+                    Его роторный двигатель обеспечивал высокую мощность при небольшом объеме, что делало автомобиль невероятно динамичным.
+                    Модель успешно выступала в гоночных сериях и завоевала множество наград. Дизайн RX-7 считается одним из самых красивых в истории.
+                    
+                </div>
+                <div class="img-block-main">
+                    <img src="images/image54.jpg" alt="Рисунок 1">
+                </div>
+                 <div class="text-column">
+                    Благодаря своей революционной конструкции, автомобиль снискал славу на гоночных трассах по всему миру,
+                    одерживая победы в престижных соревнованиях, таких как 24 часа Дайтоны. Особую известность ему принесла
+                    силовая установка — роторно-поршневой двигатель, который при скромном объеме выдавал впечатляющую мощность. 
+                    Со временем модель эволюционировала, и ее третье поколение (FD) стало иконой стиля 90-х, получив агрессивный дизайн и турбонаддув.
+                    Технические инновации Mazda RX-7 включали передовую систему охлаждения, улучшенную аэродинамику и
+                    электронные системы управления. Автомобиль предлагал водителю непревзойденное чувство контроля и отзывчивости,
+                    что делало его фаворитом среди автолюбителей и гонщиков. <a href="#">Подробнее</a>
+                </div>
+            </div>
+
+            <div class="small-column">
+                <div class="small-block-2">
+                    <img src="images/image55.jpg" alt="Рисунок 1">
+                    <h4>Mercedes-AMG G 63</h4>
+                    <p>V8<a href="#">...</a></p>
+                </div>
+                <div class="small-block-2">
+                    <img src="images/image56.jpg" alt="Рисунок 1">
+                    <h4>Brabus G V12 900</h4>
+                    <p>V12<a href="#">...</a></p>
+                </div>
+                <div class="small-block-2">
+                    <img src="images/image57.jpg" alt="Рисунок 1">
+                    <h4>Lamborghini Revuelto</h4>
+                    <p>V12SS<a href="#">...</a></p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <footer>
+            <p>
+            Б9123-09.03.04 (3 пг)<br>
+            Найдовская Любовь<br>
+            </p>
+        </footer>
+    </body>
+</html>
