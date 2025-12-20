@@ -1,0 +1,25 @@
+extends template
+
+block nav 
+    nav 
+        .nav__title= title2
+        div
+            +createMenu(dictMenu, 'Land Cruiser')
+
+block content
+    div(class="toyota-block")
+        img(class="toyota-block__img" src= require("../images/" + structures[0].pict))
+
+        div(class="toyota-block__text")
+            p= structures[0].firstP
+            p= structures[0].secondP
+
+            h3= structures[0].list1_title
+            ol
+                - for (var i = 1; i < 10; i++)
+                    li=structures[0][`list1_${i}`]
+
+            h3= structures[0].list1_title
+            ul
+                - for (var i = 1; i < 6; i++)
+                    li=structures[0][`list2_${i}`]

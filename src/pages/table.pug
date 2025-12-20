@@ -1,0 +1,91 @@
+extends template
+
+block nav 
+    nav 
+        .nav__title= title3
+        div
+            +createMenu(dictMenu, 'Список')
+
+block content 
+    details 
+        summary График
+        form
+            p
+                b Значение по оси ОХ
+                br
+                input(type="radio" name="axis_x")
+                | Год начала выпуска
+                br
+                input(type="radio" name="axis_x")
+                | Тип кузова
+        form
+            p 
+                b Значение по оси ОУ
+                br
+                input(type="radio" name="axis_y")
+                | Макс. скорость
+                br
+                input(type="radio" name="axis_y")
+                | Мин. скорость
+                br
+        form
+            p 
+                input(type="button" value="Построить")
+        p Здесь будет график
+
+    details 
+        summary Фильтр
+        form
+            p
+                label Модель: 
+                input(type="text")
+            p
+                label Тип кузова: 
+                input(type="text")
+            p
+                label Год начала выпуска: 
+                input(type="text")
+            p
+                label Длина:
+                | от 
+                input(type="text")
+                | до 
+                input(type="text")
+            p
+                label Мощность:
+                | от 
+                input(type="text")
+                | до 
+                input(type="text")
+            p
+                label Макс. скорость:
+                | от 
+                input(type="text")
+                | до 
+                input(type="text")
+            p 
+                input(type="button" value="Найти")
+
+    details 
+        summary Сортировка
+        form
+            p 
+                label Первый уровень:
+                select(name="level_1")
+                    +createOptions(sort_options)
+                | по убыванию?
+                input(type="checkbox")
+            p 
+                label Второй уровень:
+                select(name="level_2")
+                    +createOptions(sort_options)
+                | по убыванию?
+                input(type="checkbox")
+            p 
+                label Третий уровень:
+                select(name="level_3")
+                    +createOptions(sort_options)
+                | по убыванию?
+                input(type="checkbox")
+
+    +createTable(autoData)

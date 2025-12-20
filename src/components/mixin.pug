@@ -1,0 +1,60 @@
+mixin createMenu(menu, active)
+    each value, key in menu 
+        if active == key 
+            a.active(href= value)= key 
+        else
+            a(href= value)= key
+
+mixin createMenuToyota(menu, active)
+    if menu['Главная']
+        a(href= menu['Главная'])= 'Главная'
+    
+    a.active(href= "#")= active 
+
+    each value, key in menu 
+        if key != 'Главная'
+            a(href= value)= key
+
+mixin createGallery(imageList)
+    - var images = imageList.slice(0, 4)
+    each image, index in images
+        - var className = 'gallery__image--pos' + (index + 1)
+
+        if image == 'image9.jpg'
+            a(href="toyota.html" class=className)
+                img(class="gallery__image" src=require(`../images/${image}`) alt="Рисунок " + (index + 1))
+
+        else
+            div(class=className)
+                img(class="gallery__image" src=require(`../images/${image}`) alt="Рисунок " + (index + 1))
+
+mixin createSmallBlock(image, title, text)
+    .stroke__small-block
+        img(src=`images/${image}` alt=title)
+        h4= title
+        p 
+            = text
+            | 
+            a(href="#") ...
+
+mixin smallBlock(image, title, engine, position)
+      .side-card(class=`side-card--${position}`)
+        img.side-card__img(src=`images/${image}` alt=title)
+        h4.side-card__title= title
+        p.side-card__text
+          | #{engine}
+          a.side-card__link(href="#") ...
+
+mixin createOptions(list)
+    - for (var i = 0; i < list.length; i++)
+        option(value= i+1)= list[i]
+
+mixin createTable(dict)
+    table
+        tr
+            each head in ['Модель', 'Поколение', 'Годы выпуска', 'Тип кузова', 'Длина, м', 'Мощность, л.с.', 'Макс. скорость, км/ч']
+                th= head
+        each item in dict
+            tr
+                each field in Object.values(item)
+                    td= field

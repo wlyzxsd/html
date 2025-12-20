@@ -1,0 +1,40 @@
+extends template
+
+block nav 
+    nav 
+        .nav__title= title
+        div
+            +createMenu(dictMenu, 'Главная')
+
+block content 
+    div(class="gallery")
+        +createGallery(listImages)
+
+    .stroke
+        - for (var i = 0; i < 6; i++)
+            +createSmallBlock(listSections[i].image, listSections[i].title, listSections[i].text)
+            .stroke__white-block
+        +createSmallBlock(listSections[6].image, listSections[6].title, listSections[6].text)
+
+    .layout
+        .side-column
+            +smallBlock(listSections[7].image, listSections[7].title, listSections[7].text, "top")
+            +smallBlock(listSections[8].image, listSections[8].title, listSections[8].text, "middle")
+            +smallBlock(listSections[9].image, listSections[9].title, listSections[9].text, "bottom")
+
+        .content
+            .article
+            h3.article__title= mainContent[0].title
+
+            .article__text= mainContent[0].text1
+
+            .article__image
+                img(src=`images/${mainContent[0].image}` alt=mainContent[0].title)
+
+            .article__text= mainContent[0].text2
+                a(href="#") Подробнее
+
+        .side-column
+            +smallBlock(listSections[10].image, listSections[10].title, listSections[10].text, "top")
+            +smallBlock(listSections[11].image, listSections[11].title, listSections[11].text, "middle")
+            +smallBlock(listSections[12].image, listSections[12].title, listSections[12].text, "bottom")
